@@ -1,13 +1,28 @@
-class HelloWorld
+require_relative './init'
+
+class CORS
+  def initialize(app)
+    @app = app
+  end
+
   def call(env)
-    [
-      200,
-      { "Content-Type" => "text/html" },
-      ["Hello, world! (with Rack)"]
-    ]
+    response = @app.(env)
+
+    headers = response[1]
+    headers["Access-Control-Allow-Origin"] = "http://localhost:1234"
+    headers["Access-Control-Allow-Headers"] = "Content-Type"
+
+    response
   end
 end
 
-app = HelloWorld.new
+class NotFound
+  def self.call(env)
+    [404, {}, []]
+  end
+end
 
-run(app)
+use(CORS)
+use(Registration::Resource::Middleware)
+
+run(NotFound)

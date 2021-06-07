@@ -15,6 +15,10 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.6'
 
   spec.add_runtime_dependency 'rack'
+  spec.add_runtime_dependency 'rack-json_body_parser'
+  spec.add_runtime_dependency 'router'
+
+  spec.add_runtime_dependency 'evt-dependency'
 
   spec.add_development_dependency 'test_bench'
 end
