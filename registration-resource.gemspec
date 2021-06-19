@@ -18,7 +18,13 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rack-json_body_parser'
   spec.add_runtime_dependency 'router'
 
+  spec.add_runtime_dependency 'evt-clock'
   spec.add_runtime_dependency 'evt-dependency'
+  spec.add_runtime_dependency 'evt-identifier-uuid'
+  spec.add_runtime_dependency 'evt-messaging-postgres'
+  spec.add_runtime_dependency 'evt-settings'
+
+  spec.add_runtime_dependency 'registration-client'
 
   spec.add_development_dependency 'test_bench'
 end

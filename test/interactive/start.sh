@@ -2,4 +2,4 @@
 
 export LOG_TAGS=_all
 
-./script/start
+./script/dev-server

@@ -1,6 +1,10 @@
 module Registration
   module Resource
     class Command
+      include Dependency
+
+      dependency :register, Register
+
       def self.configure(receiver, attr_name: nil)
         attr_name ||= :registration_command
         instance = build
@@ -9,7 +13,12 @@ module Registration
 
       def self.build
         instance = new
+        instance.configure
         instance
+      end
+
+      def configure
+        Register.configure(self)
       end
 
       def call(env)
@@ -18,7 +27,7 @@ module Registration
         registration_id = input["registration_id"]
         email_address = input["email_address"]
 
-        # TODO: Database I/O.
+        register.(registration_id: registration_id, email_address: email_address)
 
         request = Rack::Request.new(env)
 
