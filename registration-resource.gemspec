@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rack'
   spec.add_runtime_dependency 'rack-json_body_parser'
   spec.add_runtime_dependency 'router'
+  spec.add_runtime_dependency 'view_data-postgres'
 
   spec.add_runtime_dependency 'evt-clock'
   spec.add_runtime_dependency 'evt-dependency'
