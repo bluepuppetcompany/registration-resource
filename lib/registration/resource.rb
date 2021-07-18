@@ -13,6 +13,7 @@ require 'registration/client'
 require 'registration/resource/settings'
 
 require 'registration/resource/command/expose_headers'
+require 'registration/resource/command/validate_parameters'
 require 'registration/resource/command/session'
 require 'registration/resource/command/register'
 require 'registration/resource/command'

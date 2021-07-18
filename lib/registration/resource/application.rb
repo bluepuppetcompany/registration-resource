@@ -31,6 +31,7 @@ module Registration
               app = Rack::Builder.new do
                 use(Command::ExposeHeaders)
                 use(Rack::JSONBodyParser, "registration-key")
+                use(Command::ValidateParameters, "registration-key")
                 run(handler)
               end
 
